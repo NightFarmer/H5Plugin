@@ -1,0 +1,63 @@
+<html>
+
+<head>
+
+    <script>
+
+function hehe(){
+    var p1 = H5Plugin.newObject('com.nightfarmer.h5plugin.sample.Person',22,true)
+    var result = H5Plugin.invoke(p1, "toString")
+    var value = H5Plugin.getValue(result)
+     alert(value) 
+    
+}
+function startActivity(){
+	var intent = H5Plugin.newObject("android.content.Intent")
+	var mainAct = H5Plugin.getRuntime()
+	H5Plugin.invoke(intent, "setClassName", mainAct, "com.nightfarmer.h5plugin.sample.MainActivity")
+	var obj = {}
+	obj.a=1
+	obj.b="aaa"
+	H5Plugin.invoke(intent, "putExtra", "myData",   JSON.stringify(obj))
+	H5Plugin.invoke(mainAct, "startActivity", intent)
+}
+
+function getIntentData(){
+	var mainAct = H5Plugin.getRuntime()
+	var intent = H5Plugin.invoke(mainAct, "getIntent")
+	var data = H5Plugin.invoke(intent, "getStringExtra", "myData")
+	var value = H5Plugin.getValue(data)
+	alert(value)
+}
+
+    </script>
+</head>
+
+<body id="test"
+        >    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>
+    <button onclick="hehe()">创建对象</button>
+    <button onclick="startActivity()">跳转</button>
+    <button onclick="getIntentData()">获取intent数据</button>
+</body>
+
+</html>
