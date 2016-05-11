@@ -14,6 +14,13 @@ import com.nightfarmer.h5plugin.H5PluginObject;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 
+import org.json.JSONObject;
+
+import java.io.OutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -37,14 +44,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         H5Plugin.initWebView(this, webView);
 
+        String h5Url = getIntent().getStringExtra("H5Url");
+        if (h5Url != null) {
+            webView.loadUrl("file:///android_asset/www/SUIDemo/" + h5Url);
+        } else {
 //        webView.loadUrl("file:///android_asset/www/index.html");
-        webView.loadUrl("http://m.sui.taobao.org/demos/");
+            webView.loadUrl("file:///android_asset/www/SUIDemo/hehe.html");
+//        webView.loadUrl("http://m.sui.taobao.org/demos/");
+        }
+
 
         Intent intent = getIntent();
         String myData = intent.getStringExtra("myData");
         Toast.makeText(MainActivity.this, "" + myData, Toast.LENGTH_SHORT).show();
+
     }
 
 
